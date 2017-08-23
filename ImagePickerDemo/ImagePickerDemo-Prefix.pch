@@ -1,0 +1,13 @@
+//
+//  ImagePickerDemo-Prefix.pch
+//  ImagePickerDemo
+//
+//  Created by jyd on 2017/8/21.
+//  Copyright © 2017年 jyd. All rights reserved.
+//
+
+#ifndef ImagePickerDemo_Prefix_pch
+#define ImagePickerDemo_Prefix_pch
+#import "ImagePicker.h"
+
+#endif /* ImagePickerDemo_Prefix_pch */
