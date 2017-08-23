@@ -8,13 +8,10 @@
 
 #import "ImagePickerController.h"
 
-//#import "LLAuthorizationDeniedController.h"
 #import "AlbumListController.h"
 #import "AssetListController.h"
 #import "AssetManager.h"
-//#import "UIKit+LLExt.h"
-//#import "LLUtils.h"
-//#import "LLImagePickerConfig.h"
+
 
 static NSString *lastAssertGroupIdentifier;
 
@@ -47,7 +44,6 @@ static NSString *lastAssertGroupIdentifier;
             {
                 //ImagePicker打开时尚未获取照片库权限，请求权限后用户允许访问照片库
                 if (weakSelf.albumVC) {
-//                    if (!([[UIDevice currentDevice].systemVersion floatValue] >= 8.0))
                         [weakSelf fetchAlbumData];
                 }else {
                     //ImagePicker打开时就获取了访问照片库的权限
@@ -68,11 +64,8 @@ static NSString *lastAssertGroupIdentifier;
             case kAuthorizationTypeDenied:
             case kAuthorizationTypeRestricted:
             {
-//                AuthorizationDeniedController *vc = [[LLAuthorizationDeniedController alloc] initWithNibName:nil bundle:nil];
-//                [weakSelf setViewControllers:@[vc] animated:NO];
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请在iPhone的“设置-隐私-相册”选项中，允许本应用程序访问你的相机。" delegate:self cancelButtonTitle:@"好，我知道了" otherButtonTitles:nil];
-                [alert show];
-                [self dismissViewControllerAnimated:YES completion:nil];
+
+                //相册不可用
 
             }
                 break;
@@ -81,7 +74,7 @@ static NSString *lastAssertGroupIdentifier;
                 weakSelf.albumVC = [[AlbumListController alloc] initWithStyle:UITableViewStylePlain];
                 weakSelf.albumVC.selecedNum = _selectedNum;
                 [weakSelf setViewControllers:@[weakSelf.albumVC] animated:NO];
-//                if (!([[UIDevice currentDevice].systemVersion floatValue] >= 8.0))
+
                     [weakSelf fetchAlbumData];
             }
                 break;
