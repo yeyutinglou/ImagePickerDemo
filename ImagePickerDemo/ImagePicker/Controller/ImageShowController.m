@@ -124,9 +124,9 @@
 
 - (BOOL)doSelect:(BOOL)isCurSelected {
     if (!isCurSelected) {
-        if (self.allSelectdAssets.count == MAX_PHOTOS_CAN_SELECT) {
-//            [LLUtils showMessageAlertWithTitle:nil message:[NSString stringWithFormat:@"最多选择%d张照片", MAX_PHOTOS_CAN_SELECT] actionTitle:@"我知道了"];
-//            [MBProgressHUD showText:[NSString stringWithFormat:@"最多选择%d张照片", MAX_PHOTOS_CAN_SELECT]];
+        if (self.allSelectdAssets.count == MAX_PHOTOS_CAN_SELECT - self.selectedNum) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[NSString stringWithFormat:@"最多选择%ld张照片", MAX_PHOTOS_CAN_SELECT - self.selectedNum]delegate:self cancelButtonTitle:@"好，我知道了" otherButtonTitles:nil];
+            [alert show];
             return NO;
         }else if (![self.allSelectdAssets containsObject:self.curShowAsset]) {
             [self.allSelectdAssets addObject:self.curShowAsset];

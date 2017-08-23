@@ -16,4 +16,6 @@
 @property (nonatomic) NSMutableArray<AssetModel *> *allSelectdAssets;
 @property (nonatomic) AssetModel *curShowAsset;
 
+@property (nonatomic, assign) NSInteger selectedNum;
+
 @end

@@ -111,12 +111,12 @@
 
 
 - (void)showLoadingIndicator {
-//    self.HUD = [LLUtils showActivityIndicatiorHUDWithTitle:@"正在加载..." inView:self.view];
+
 }
 
 
 - (void)hideLoadingIndicator {
-//    [LLUtils hideHUD:self.HUD animated:YES];
+
 }
 
 
@@ -269,6 +269,7 @@
     previewController.curShowAsset = cell.assetModel;
     previewController.allSelectdAssets = self.allSelectdAssets;
     previewController.allAssets = self.groupModel.allAssets;
+    previewController.selectedNum = self.selectedNum;
     
     [self.navigationController pushViewController:previewController animated:YES];
 }

@@ -13,9 +13,10 @@
 
 @interface AlbumListController : UITableViewController
 
+///已选个数
 @property (nonatomic, assign) NSInteger selecedNum;
 
-
+///刷新数据
 - (void)refresh;
 
 @end
